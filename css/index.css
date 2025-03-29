@@ -1,0 +1,493 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+
+@keyframes fadeInPage {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    animation: fadeInPage 1s ease-in-out;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: linear-gradient(90deg, #333 0%, #00dbd7 100%);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+}
+
+.logo img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #fff;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+    transform: scale(1.1);
+}
+
+.auth-buttons button {
+    background: white;
+    color: #333;
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+.auth-buttons button:hover {
+    background: #00dbd7;
+    color: white;
+    transform: scale(1.2);
+}
+/* Center align all h2 headings */
+/* h2 {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+} */
+
+/* Optional: Add a small underline effect */
+/* h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #00dbd7;
+    margin: 8px auto 0;
+    transition: width 0.3s ease-in-out;
+}
+
+/* On Hover: Expand the underline */
+/* h2:hover::after {
+    width: 100px;
+}
+ */ 
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    background: linear-gradient(135deg, #333 0%, #00dbd7 100%);
+    color: white;
+    padding-top: 80px;
+}
+
+.hero-content h1 {
+    font-size: 50px;
+    margin-bottom: 10px;
+    animation: textGlow 1.5s infinite alternate;
+}
+
+@keyframes textGlow {
+    from { text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); }
+    to { text-shadow: 0 0 20px rgba(255, 255, 255, 0.8); }
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.get-started {
+    position: relative;
+    background: white;
+    color: #333;
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, background 0.3s;
+    border-radius: 5px;
+    animation: fadeInUp 1s ease-in-out;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Shine Effect */
+.get-started::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: skewX(-30deg);
+    transition: left 0.5s ease-in-out;
+}
+
+.get-started:hover::before {
+    left: 100%;
+}
+
+/* Ripple Effect */
+.get-started::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background: rgba(0, 219, 215, 0.5);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.get-started:hover::after {
+    transform: translate(-50%, -50%) scale(10);
+    opacity: 0.3;
+}
+
+/* Hover Effect */
+.get-started:hover {
+    background: #00dbd7;
+    color: white;
+    transform: scale(1.1);
+}
+
+
+
+/* Sections */
+section {
+    padding: 100px 50px;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+/* Services Section */
+/* Services Container */
+.services-container {
+    padding: 50px 0;
+    background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+    color: white;
+    text-align: center;
+    transition: background 0.5s ease-in-out; /* Smooth transition */
+}
+
+/* Section Heading */
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #00e6e6; /* Aqua Color */
+}
+
+/* Card Layout */
+.service-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* Card Styling */
+.card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+    width: 300px;
+    height: 380px; /* Sabhi cards equal height ke honge */
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Card Image */
+.card-image {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.8);
+    transition: filter 0.3s ease-in-out;
+    flex-shrink: 0;
+}
+
+.card:hover .card-image {
+    filter: brightness(1);
+}
+
+/* Card Content */
+.card-content {
+    padding: 20px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    border-radius: 0 0 12px 12px;
+    flex-grow: 1; /* Taaki content evenly distribute ho */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-content h3 {
+    margin: 10px 0;
+    font-size: 1.5rem;
+    color: #00e6e6; /* Aqua */
+}
+
+.card-content p {
+    font-size: 1rem;
+    color: #ddd;
+    margin-top: 5px;
+}
+
+
+/* Developer Section */
+#developers {
+    text-align: center;
+    padding: 80px 0;
+    background: #f5f5f5;
+}
+
+
+/* Developer Cards Container */
+.developer-profiles {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* Developer Card Styling with 3D Lift Effect */
+.developer-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    width: 320px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Hover - 3D Lift Effect */
+.developer-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Developer Image */
+.developer-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 12px;
+    object-fit: cover;
+    border: 4px solid #00dbd7;
+    transition: box-shadow 0.4s ease-in-out;
+}
+
+/* Image Hover Effect */
+.developer-card:hover .developer-img {
+    box-shadow: 0 0 20px rgba(0, 219, 215, 0.8);
+}
+
+/* Developer Name */
+.developer-card h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Hover Effect on Name */
+.developer-card:hover h3 {
+    color: #00dbd7;
+}
+
+/* Developer Role */
+.developer-card p {
+    font-size: 16px;
+    color: #444;
+    font-style: italic;
+}
+
+/* Social Media Icons */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+/* Social Icons - Glow Effect */
+.social-links a {
+    text-decoration: none;
+    font-size: 24px;
+    color: #333;
+    transition: transform 0.3s ease-in-out, text-shadow 0.3s ease-in-out, color 0.3s;
+}
+
+/* Hover Effect on Social Icons */
+.social-links a:hover {
+    transform: scale(1.3);
+    color: #00dbd7;
+    text-shadow: 0 0 15px rgba(0, 219, 215, 1);
+}
+
+
+/* Contact Us Section */
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh;
+    width: 60%;
+    margin: auto;
+}
+
+.contact form {
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact input,
+.contact textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.contact button {
+    background: #00dbd7;
+    color: white;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, background 0.3s;
+    border-radius: 5px;
+}
+
+.contact button:hover {
+    background: #333;
+    transform: scale(1.05);
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: white;
+}
+
+.scroll-top {
+    margin-top: 10px;
+    background: white;
+    color: #333;
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.scroll-top:hover {
+    background: #00dbd7;
+    color: white;
+    transform: scale(1.2);
+}
+
+.admin-icon {
+    font-size: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.admin-icon:hover {
+    color: #ffd700;
+}
